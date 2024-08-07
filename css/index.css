@@ -49,6 +49,7 @@ body{
     height: 100vh;
     background-color:rgb(108, 151, 105);
     font-family: 'Courier New', Courier, monospace;
+
 }
 .grid-container{
     display: grid;
