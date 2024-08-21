@@ -1,12 +1,15 @@
 #name{
-    font-family:"Molle-regular-italic", cursive;
+    font-family:"Molle-regulr-italic,bold",cursive;
     font-weight: 400;
     font-style: italic;
     font-size: 3rem;
     padding-top: 2ch;
     padding: top 3inch;;
     color: rgb(38, 92, 43);
+    border-color: rgb(57, 103, 57);
+    
 
+    margin: 1em;
       
 }
 .molle-regular-italic {
@@ -14,7 +17,7 @@
     font-weight: 400;
     font-style: italic;
   }
-  
+
 #profile-picture{
     border-radius: 50%;
     margin: 1em;
@@ -24,7 +27,6 @@
     border-style: groove;
 }
 
-
 #navigation ul{
     display:flex;
     gap: 4em;
@@ -32,64 +34,134 @@
     list-style: none;
 }
 #navigation {
-    position:fixed;
-    top: 0;
-    background-color:rgb(120,147,80);
+    align-items: flex-start;
+    padding: 4vh 6vw 5vh;
+    display: flex;
+    position: absolute;
+    top: 0%;
+    bottom: auto;
+    left:0%;
+    right: 0%;
+    background-color:rgb(108, 151, 105)
 }
 a :hover{
     opacity: 0.3;
 }
+#about{
+    display: grid;
+    flex-direction: row;
+    background-color: rgb(108, 151, 105);
+    border-radius: 0.8em;
+    padding: 0.5em;
+    width: 20em;
 
+
+}
+p{
+    display: flex;
+    background-color: rgb(141, 173, 144);
+    padding: 0.5em;
+}
 h2{
-    font-weight: bold;
+    font-weight:bold;
     font-size: 3rem;
     color: rgb(52, 113, 58);
+    background-color: rgb(141, 173, 144);
 }
 body{
     height: 100vh;
     background-color:rgb(108, 151, 105);
     font-family: 'Courier New', Courier, monospace;
+
+}
+.exp-container{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.exp-item{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(141, 173, 144);
+    border-radius: 0.8em;
+    padding: 0.5em;
+    width: 20em;
 }
 .grid-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     gap: 10px;
 }
 .grid-item{
     display: flex;
     flex-direction: row;
-    background-color: darkgreen;
+    background-color: rgb(4, 44, 4);
     border-radius: 0.8rem;
     padding: 0.5em;
-}
-#skills ul li{
-    list-style: none;
-    display: flexbox;
-    margin: 0.5em;
-    background-color:rgb(34, 61, 34);
-    color:whitesmoke;
-    padding: 0.5em;}
-#experience ul li{
-    list-style: none;
-    display: flexbox;
-    margin: 0.5em;
-    background-color:rgb(34, 61, 34);
-    color:whitesmoke;
-    padding: 0.5em;
-
 }
 #connect ul li{
     list-style: none;
     display:flex;
     margin: 1em;
-    background-color: rgb(34,61,34);
-    color: rgb(175, 139, 139);
+    background-color: rgb(141, 173, 144);
+    color: rgb(182, 237, 193);
     padding: o.5em;
 }
 #footer{
+    display: flex;
     font-family: monospace;
     font-size:4rem;
     padding: top 3inch;;
-    color: rgb(38, 92, 43);
+    color: rgb(138, 187, 143);
+    border-radius: 0.8rem;
 }
                          
+
+
+@media (min-width:500px){
+    .header {
+        font-size: 1.5rem;
+    }
+    .grid-container{
+        max-width: 500px;
+    }
+
+}
+
+.navigation{
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+@media(max-width:600px){
+    .exp-container {
+        width:100%;
+    }
+}
+@media (max-width:600px){
+    .profile-picture{
+        width: 100%;
+    }
+    .about{
+        width: 100%;
+    }
+}
+@media(min-width:768px){
+    .exp-container{
+        width: 100%;
+    }
+}
+@media(min-width: 1200px){
+    .exp-container{
+        width: 100%;
+        background-color: rgb(74, 90, 85);
+    }
+}
+@media screen and (max-width: 600px) {
+    .topnav a {
+      float: none;
+      width: 100%;
+    }
+  }
