@@ -140,6 +140,12 @@ body{
         width:100%;
     }
 }
+@media(max-width:600px){
+    .navigation{
+        width: 100%;
+        background-color:rgb(200, 175, 175) ;
+    }
+}
 @media (max-width:600px){
     .profile-picture{
         width: 100%;
@@ -159,9 +165,13 @@ body{
         background-color: rgb(74, 90, 85);
     }
 }
-@media screen and (max-width: 600px) {
-    .topnav a {
-      float: none;
-      width: 100%;
-    }
-  }
+#skills{
+    flex-direction: row;
+    background-color: rgb(145, 199, 145);
+    border-radius: 0.8rem;
+    padding-block-end: .5em;
+    padding-bottom: 0.5em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+    gap: px;
+}
