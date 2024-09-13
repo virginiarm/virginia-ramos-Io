@@ -5,46 +5,46 @@ body.appendChild(footer);
 const today = new Date();
 const year = today.getFullYear();
 const copyright = document.createElement('p');
-copyright.innerHTML ='<span>Virginia</span><span>&#169</span><span>${year}</span>'
+copyright.innerHTML = '<span>Virginia</span><span>&#169</span><span>${year}</span>'
 footer.appendChild(copyright);
 
-const skillsList =['html','css','python','canva'];
-const skillsSection= document.getElementById('skills');
-const skillsUl= skillsSection.querySelector('ul');
+const skillsList = ['html', 'css', 'python', 'canva'];
+const skillsSection = document.getElementById('skills');
+const skillsUl = skillsSection.querySelector('ul');
 
-for (let skill of skillsList){
+for (let skill of skillsList) {
     let skillItem = document.createElement('li');
     skillItem.innerHTML = skill;
     skillsUl.appendChild(skillItem);
 }
 //handle submission of new message list entries
-messageForm.addEventListener('submit',(event)=> {
+messageForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    let name= event.target.usersName.value;
-    let email= event.target.usersEmail.value;
-    let message= event.target.usersMessage.value;
+    let name = event.target.usersName.value;
+    let email = event.target.usersEmail.value;
+    let message = event.target.usersMessage.value;
 
-    console.log('Name:',name);
-    console.log('Email:',email);
-    console.log('Message:',message);
+    console.log('Name:', name);
+    console.log('Email:', email);
+    console.log('Message:', message);
     let uid = makeId();
-    let newMessage= document.createElement('li');
+    let newMessage = document.createElement('li');
     newMessage.classList.add('message-item');
 
-    newMessage.innerHTML='<a href="mailto:${email}'
+    newMessage.innerHTML = '<a href="mailto:${email}'
 
-    entryById[uid] ={ usersName:name, usersEmail: email, message:message}
+    entryById[uid] = { usersName: name, usersEmail: email, message: message }
     newMessage.appendChild(makeEditButton());
     newMessage.appendChild(makeRemoveButton());
 
     messageList.appendChild(newMessage);
     messageForm.reset();
-    messageSection.hidden= false;
+    messageSection.hidden = false;
 });
 //handle submission of new entry
 const messageForm = document.forms['leave_message'];
 
-messageForm.addEventListener('sunmit', function(event){
+messageForm.addEventListener('sunmit', function (event) {
     event.preventDefault();
 
     const usersName = event.target.usersName.value;
@@ -55,12 +55,12 @@ messageForm.addEventListener('sunmit', function(event){
     console.log('Email:${usersEmail}');
     console.log('Message:${usersMessage}');
 
-    const messageSection =document.getElementById('messages');
+    const messageSection = document.getElementById('messages');
     const messageList = messageSection.querySelector('ul');
 
     const newMessage = document.createElement('li');
 
-    newMessage = innerHTML= '<a href="mailto:${usersEmail}">${userName}</a><span> wrote: ${usersMessage}</a><span>wrote: ${usersMessage}</span>';
+    newMessage = innerHTML = '<a href="mailto:${usersEmail}">${userName}</a><span> wrote: ${usersMessage}</a><span>wrote: ${usersMessage}</span>';
 
 
     //remove button
@@ -69,7 +69,7 @@ messageForm.addEventListener('sunmit', function(event){
     removeButton.type = 'button';
 
     //
-    removeButton.addEventListener('click',function(){
+    removeButton.addEventListener('click', function () {
         const entry = removeButton.parentNode;
         entry.remove();
     });
@@ -80,3 +80,31 @@ messageForm.addEventListener('sunmit', function(event){
 
     messageForm.rest();
 });
+fetch ("https://api.github.com/users/virginiarm/repos")
+    //get response
+    .then((response) => {
+        if (!response.ok){
+            throw new Error("Request failed");
+        }
+        return response.json();
+    })
+
+    //getting data and adding to the html
+    .then((data)=> {
+        console.log("json data=", data);
+        repositories = [...data];
+        console.log("repositories array =", repositories);
+        //project section and ul
+        const projectSection = document.getElementById("projects-section");
+        const projectList = projectSection.getElementById("UL");
+        //CREATE the repositories list by adding it to the html
+        for (let i=0; i < repositories.length; i++){
+            var project = document.createElement("LI");
+            project.innerText= repositories[i].html_url;
+            console.log(project);
+            projectList[0].appendChild(project);
+        }
+    })
+    .catch((error)=> {
+        console.log("An error occured:" , error);
+    });
