@@ -95,7 +95,7 @@ body{
 .grid-item{
     display: flex;
     flex-direction: row;
-    background-color: rgb(4, 44, 4);
+    background-color: rgb();
     border-radius: 0.8rem;
     padding: 0.5em;
 }
@@ -162,7 +162,7 @@ body{
 @media(min-width: 1200px){
     .exp-container{
         width: 100%;
-        background-color: rgb(74, 90, 85);
+        background-color: rgb(108, 151, 105);
     }
 }
 #skills{
@@ -174,4 +174,22 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
     gap: px;
+}
+@media (min-width: 768px){
+    body{
+        font-size: 18px;
+    }
+    .container{
+        max-width: 750px;
+        padding: 30px;
+    }
+}
+@media (min-width: 1024px){
+    body{
+        font-size: 20px;
+    }
+    .container{
+        max-width: 960px;
+        padding: 40px
+    }
 }
